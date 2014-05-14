@@ -63,4 +63,5 @@ function! To_Tmux()
   call Send_to_Tmux(b:text . "\r")
 endfunction
 
-cmap tmux :call To_Tmux()<CR>
+"cmap tmux :call To_Tmux()<CR>
+command! -bang -nargs=* -complete=file Tmux           call Send_to_Tmux(<q-args> . "\r")
