@@ -42,8 +42,8 @@ endfunction
 
 " set tslime.vim variables
 function! s:Tmux_Vars()
-  "let b:tmux_sessionname = input("session name: ", "", "custom,Tmux_Session_Names")
-  "let b:tmux_windowname = substitute(input("window name: ", "", "custom,Tmux_Window_Names"), ":.*$" , '', 'g')
+  let b:tmux_sessionname = input("session name: ", "", "custom,Tmux_Session_Names")
+  let b:tmux_windowname = substitute(input("window name: ", "", "custom,Tmux_Window_Names"), ":.*$" , '', 'g')
   let b:tmux_panenumber = input("pane number: ", "", "custom,Tmux_Pane_Numbers")
 
   if !exists("g:tmux_panenumber")
@@ -60,7 +60,7 @@ nmap <C-c>v :call <SID>Tmux_Vars()<CR>
 
 function! To_Tmux()
   let b:text = input("tmux:", "", "custom,")
-  call Send_to_Tmux(b:text . "\\r")
+  call Send_to_Tmux(b:text . "\r")
 endfunction
 
 cmap tmux :call To_Tmux()<CR>
